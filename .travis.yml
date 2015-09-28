@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.10'
+before_deploy:
+- ./build
+deploy:
+- provider: s3
+  access_key_id: AKIAJH2D5IPIRHYJT5IA
+  secret_access_key:
+    secure: "eKH1Hjk72dx80MkN2O5abHaI4EV6dufw/6c/3ND34WyZCGiE2LrQScrt0Ao8X1qbtWn4IzK7qh4ZZ+IvGDSr1xAbRJedb1wAZnJ8OoUPMOVVHIXzlR15vpYsvYRCK2jdJ3TJAlxbMJxX9uXe8oDMJYe6/W5OLsFcf2mbBoDRbIIGuQmaU4vhtBQ4wLziCuDzw8Eay1jKUJbkJpzfDGll9HQhIb0+kbp+aGNMIWh/UYpdEFoPYCxJYXnIW8WmBFgLERfU21/foDtfdkw2Pi2Aogh3wVwd0EKoqvf1HcKbiFK92n1z5gSCWC6YBAftdPo7/bNHpdelcKpW76Aeijo5RkSqZXLT/DiKTwUaRUquy6j6wfrJzi82C4gZg8tT444D014ttgBhapGjGbU5EEYhqm5vVE6k7PoIETVeHSV8Lr9lztVQF8v4wF8iCCGw7ZRDuLSvYDT7a8K2BTewgyJ+2QMFS0I3DqS3vMiJwAw0HHGuD5i6E+nAufoxn1REyARNdbEY9LnAJS03YhFxCzvy7IhTrXxxpd0D2uw33ED/z/nPz5JQ+QP0nTU0/KkxVswUv1VZMNArioSBV/Dp74q6Ql9z9OCLW1nxgNxbgnYVCIL61My3JHhbuACaTnRhvL56bm1rfjhM4jRKvFBy+TgxdtGAlhWslzLKyLAFImOqbqs="
+  bucket: gateblu
+  upload-dir: electron-binaries
+  region: us-west-2
+  skip_cleanup: true
+  local-dir: dpl_s3
+  on:
+    tags: true
+    all_branches: master

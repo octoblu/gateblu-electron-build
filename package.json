@@ -1,0 +1,23 @@
+{
+  "name": "gateblu-electron-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octoblu/gateblu-electron-build.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/octoblu/gateblu-electron-build/issues"
+  },
+  "homepage": "https://github.com/octoblu/gateblu-electron-build#readme",
+  "devDependencies": {
+    "electron-packager": "^5.1.0"
+  }
+}
