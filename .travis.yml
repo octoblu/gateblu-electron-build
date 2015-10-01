@@ -14,7 +14,7 @@ before_script:
 - brew install curl
 - npm install
 script:
-- ./build
+- ./build.sh
 before_deploy:
 - mkdir dpl_s3
 - cp build/**/*.zip dpl_s3/
