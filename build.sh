@@ -38,7 +38,9 @@ for ELECTRON_PLATFORM in $PLATFORMS; do
       --out=$CACHE_DIR \
       --cache=$CACHE_DIR/electron \
       --overwrite \
+      --prune \
       --version-string.CompanyName=Octoblu \
+      --version-string.FileDescription=Gateblu \
       --version-string.ProductName=Gateblu
 
   PACKAGE_FOLDER=$CACHE_DIR/gateblu-v$ELECTRON_VERSION-$ELECTRON_PLATFORM
