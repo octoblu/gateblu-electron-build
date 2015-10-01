@@ -38,18 +38,16 @@ for ELECTRON_PLATFORM in $PLATFORMS; do
       --out=$CACHE_DIR \
       --cache=$CACHE_DIR/electron \
       --overwrite \
-      --prune \
       --version-string.CompanyName=Octoblu \
       --version-string.FileDescription=Gateblu \
       --version-string.ProductName=Gateblu
 
-  PACKAGE_FOLDER=$CACHE_DIR/gateblu-v$ELECTRON_VERSION-$ELECTRON_PLATFORM
-
+  PACKAGE_FOLDER_NAME=gateblu-v$ELECTRON_VERSION-$ELECTRON_PLATFORM
+  cd $CACHE_DIR
   echo "** Renaming App [$ELECTRON_PLATFORM]..."
-  mv $CACHE_DIR/Gateblu-$ELECTRON_PLATFORM $PACKAGE_FOLDER
+  mv Gateblu-$ELECTRON_PLATFORM $PACKAGE_FOLDER_NAME
 
   echo "** Zipping App [$ELECTRON_PLATFORM]..."
-  cd $PACKAGE_FOLDER
-  zip -9rq $PACKAGE_FOLDER.zip *
+  zip -9rqy $PACKAGE_FOLDER_NAME.zip $PACKAGE_FOLDER_NAME/*
 
 done
