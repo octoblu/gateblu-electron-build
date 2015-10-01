@@ -7,6 +7,8 @@ START_DIR=`pwd`
 if [ -z "$PLATFORMS" ]; then
   PLATFORMS="darwin-x64 linux-x64 linux-ia32 win32-ia32 win32-x64"
 fi
+
+ulimit -n 8192
 BUILD_DIR=$START_DIR/build
 CACHE_DIR=$BUILD_DIR/cache
 ELECTRON_VERSION=0.33.3
