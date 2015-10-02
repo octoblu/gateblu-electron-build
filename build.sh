@@ -12,6 +12,7 @@ fi
 ulimit -n 8192
 BUILD_DIR=$START_DIR/build
 CACHE_DIR=$BUILD_DIR/cache
+APP_DIR=$START_DIR/app
 ELECTRON_VERSION=0.33.3
 
 mkdir -p build/cache/electron
@@ -39,6 +40,7 @@ for ELECTRON_PLATFORM in $PLATFORMS; do
       --out=$CACHE_DIR \
       --cache=$CACHE_DIR/electron \
       --overwrite \
+      --app-bundle-id=com.octoblu.GatebluApp \
       --version-string.CompanyName=Octoblu \
       --version-string.ProductName=Gateblu
 
