@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/bin/bash
 
 echo "** Starting..."
 
@@ -39,15 +40,18 @@ for ELECTRON_PLATFORM in $PLATFORMS; do
       --cache=$CACHE_DIR/electron \
       --overwrite \
       --version-string.CompanyName=Octoblu \
-      --version-string.FileDescription=Gateblu \
       --version-string.ProductName=Gateblu
 
-  PACKAGE_FOLDER_NAME=gateblu-v$ELECTRON_VERSION-$ELECTRON_PLATFORM
-  cd $CACHE_DIR
+  PACKAGE_FOLDER=$BUILD_DIR/gateblu-v$ELECTRON_VERSION-$ELECTRON_PLATFORM
+
   echo "** Renaming App [$ELECTRON_PLATFORM]..."
-  mv Gateblu-$ELECTRON_PLATFORM $PACKAGE_FOLDER_NAME
+  mv $CACHE_DIR/Gateblu-$ELECTRON_PLATFORM $PACKAGE_FOLDER
 
   echo "** Zipping App [$ELECTRON_PLATFORM]..."
-  zip -9rqy $PACKAGE_FOLDER_NAME.zip $PACKAGE_FOLDER_NAME/*
+  cd $PACKAGE_FOLDER
+  zip -9rqy $PACKAGE_FOLDER.zip *
 
 done
+cd $START_DIR
+mkdir -p dpl_s3
+cp build/gateblu-*.zip dpl_s3/

@@ -15,9 +15,6 @@ before_script:
 - npm install
 script:
 - ./build.sh
-before_deploy:
-- mkdir dpl_s3
-- cp build/**/*.zip dpl_s3/
 deploy:
 - provider: s3
   access_key_id: AKIAJH2D5IPIRHYJT5IA
